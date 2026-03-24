@@ -1,0 +1,40 @@
+{
+	"buttons": [
+		{
+			"button": "buttonUp",
+			"graphic": "up",
+			"color": "0x00FF00",
+			"position": [
+				0,
+				465
+			]
+		},
+		{
+			"button": "buttonLeft",
+			"graphic": "left",
+			"color": "0xFFC24B99",
+			"position": [
+				126,
+				585
+			]
+		},
+		{
+			"button": "buttonRight",
+			"graphic": "right",
+			"color": "0xFFF9393F",
+			"position": [
+				252,
+				585
+			]
+		},
+		{
+			"button": "buttonDown",
+			"graphic": "down",
+			"color": "0xFF00FFFF",
+			"position": [
+				0,
+				585
+			]
+		}
+	]
+}

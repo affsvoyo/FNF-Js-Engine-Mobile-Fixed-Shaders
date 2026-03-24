@@ -1,0 +1,100 @@
+{
+	"buttons": [
+		{
+			"button": "buttonUp",
+			"buttonIDs": [
+				"UP"
+			],
+			"graphic": "up",
+			"color": "0xFF12FA05",
+			"position": [
+				98,
+				405
+			]
+		},
+		{
+			"button": "buttonLeft",
+			"buttonIDs": [
+				"LEFT"
+			],
+			"graphic": "left",
+			"color": "0xFFC24B99",
+			"position": [
+				0,
+				500
+			]
+		},
+		{
+			"button": "buttonRight",
+			"buttonIDs": [
+				"RIGHT"
+			],
+			"graphic": "right",
+			"color": "0xFFF9393F",
+			"position": [
+				196,
+				500
+			]
+		},
+		{
+			"button": "buttonDown",
+			"buttonIDs": [
+				"DOWN"
+			],
+			"graphic": "down",
+			"color": "0xFF00FFFF",
+			"position": [
+				98,
+				596
+			]
+		},
+		{
+			"button": "buttonUp2",
+			"buttonIDs": [
+				"UP2"
+			],
+			"graphic": "up",
+			"color": "0xFF12FA05",
+			"position": [
+				105,
+				0
+			]
+		},
+		{
+			"button": "buttonLeft2",
+			"buttonIDs": [
+				"LEFT2"
+			],
+			"graphic": "left",
+			"color": "0xFFC24B99",
+			"position": [
+				0,
+				95
+			]
+		},
+		{
+			"button": "buttonRight2",
+			"buttonIDs": [
+				"RIGHT2"
+			],
+			"graphic": "right",
+			"color": "0xFFF9393F",
+			"position": [
+				196,
+				95
+			]
+		},
+		{
+			"button": "buttonDown2",
+			"buttonIDs": [
+				"DOWN2"
+			],
+			"graphic": "down",
+			"color": "0xFF00FFFF",
+			"position": [
+				98,
+				192
+			]
+		}
+	]
+}

@@ -1,0 +1,75 @@
+name: Mobile Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Release tag (e.g. `v0.13.3 or bugfix`)"
+        required: true
+      prerelease:
+        description: 'Mark as a pre-release? (true/false)'
+        default: 'false'
+        required: false
+
+permissions:
+  contents: write
+
+env:
+  TAG_NAME: ${{ github.event.inputs.tag_name }}
+
+jobs:
+  create-nightly-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create and push tag
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git tag ${{ env.TAG_NAME }}
+          git push origin ${{ env.TAG_NAME }}
+
+  build:
+    name: Build
+    needs: create-nightly-tag
+    uses: ./.github/workflows/mobile.yml
+    with:
+      buildFlags: officialBuild
+
+  release-android:
+    name: Release Android Build
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Android artifact
+        uses: actions/download-artifact@main
+        with:
+          name: androidBuild
+      - name: Upload Android Build to Release
+        uses: svenstaro/upload-release-action@2.5.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.TAG_NAME }}
+          file: JSEngine-release.apk
+          asset_name: FNF-JS-Engine-android.apk
+          overwrite: false
+
+  release-ios:
+    name: Release iOS Build
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download iOS artifact
+        uses: actions/download-artifact@main
+        with:
+          name: iOSBuild
+      - name: Upload iOS Build to Release
+        uses: svenstaro/upload-release-action@2.5.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.TAG_NAME }}
+          file: JSEngine.ipa
+          asset_name: FNF-JS-Engine-iOS.ipa
+          overwrite: false
