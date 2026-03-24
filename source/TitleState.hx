@@ -54,6 +54,11 @@ class TitleState extends MusicBeatState
 
   override public function create():Void
   {
+      var bg:FlxSprite = new FlxSprite(0, 0);
+      bg.loadGraphic(Paths.image('Title/bgmenu'));
+      bg.screenCenter();
+      add(bg);
+    
     Paths.clearStoredMemory();
     Paths.clearUnusedMemory();
 
